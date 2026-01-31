@@ -1,4 +1,6 @@
-const express = require('express');
+import express from 'express'
+import db from './database.js'
+
 const app = express();
 
 
