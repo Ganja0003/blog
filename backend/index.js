@@ -1,8 +1,10 @@
 import express from 'express'
 import db from './database.js'
+import authRoute from './auth/route.js'
 
 const app = express();
-
+app.use(express.json())
+app.use('/auth',authRoute)
 
 app.get('/',(req,res) => {
     res.send('welcome to the backend');
