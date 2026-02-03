@@ -20,4 +20,28 @@ route.post('/signup', async (req,res) => {
     }
 })
 
+
+route.post('/login', async (req,res) => {
+    try{
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const user = await db('users').where({email: email}).first()
+    if(!user){
+        return res.status(401).json('Unauthorized');
+    }
+
+    const checkPassword = await bcrypt.compare(password,user.password)
+
+    if(!checkPassword){
+       return res.status(401).json('Unauthorized');
+    }else{
+        res.status(200).json('Logged In');
+    }
+
+    } catch(err){
+        res.status(500).json('server error')
+    }
+})
+
 export default route;
