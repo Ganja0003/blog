@@ -1,8 +1,11 @@
 import db from '../database.js'
 import express from 'express'
 import bcrypt from 'bcrypt'
+import cookieParser from 'cookie-parser'
+import createToken from '../utils/createToken.js'
 
 const route = express.Router();
+route.use(cookieParser())
 
 route.post('/signup', async (req,res) => {
     try{
@@ -36,6 +39,9 @@ route.post('/login', async (req,res) => {
     if(!checkPassword){
        return res.status(401).json('Unauthorized');
     }else{
+        res.cookie('token',createToken(user), {
+        maxAge: 60*60*24*30*1000 }
+    )
         res.status(200).json('Logged In');
     }
 
