@@ -1,11 +1,10 @@
 import db from '../database.js'
 import express from 'express'
 import bcrypt from 'bcrypt'
-import cookieParser from 'cookie-parser'
 import createToken from '../utils/createToken.js'
 
 const route = express.Router();
-route.use(cookieParser())
+
 
 route.post('/signup', async (req,res) => {
     try{
