@@ -20,7 +20,7 @@ app.get('/',(req,res) => {
 
 
 app.get('/profile', auth, (req,res) => {
- res.json(req.user.email)
+ res.json(req.user)
 })
 
 app.listen(3001, () => {
