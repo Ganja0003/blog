@@ -34,7 +34,7 @@ export default function Login() {
       const data = await res.json();
       if (res.ok) {
         console.log("Logged in", data);
-        router.push("/profile");
+        router.push("/");
       }else{
         console.log('Login failed',data);
       }
