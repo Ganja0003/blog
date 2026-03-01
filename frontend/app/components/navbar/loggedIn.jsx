@@ -1,24 +1,36 @@
-'use client'
-import Link from 'next/link'
-export default function Loggedin(){
+"use client";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+export default function Loggedin() {
+  const router = useRouter();
 
-    function handleLogout(){
-        document.cookie = 'token=; max-age=0; path=/'
-        window.location.href = '/'
+  async function handleLogout() {
+    const res = await fetch("http://127.0.0.1:3001/auth/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+
+    if (res.ok) {
+      router.push("/");
     }
-    return(
-        <>
-        
-        
-        <div className='navBarLoggedIn'>
-            <div className="navTitle"><h1>Blog</h1></div>
-            <div className="navLinks">
-                <Link href='/profile' className='link'>Profile</Link>
-                <Link href='/create' className='link'>Create Post</Link>
-                <button onClick={handleLogout}>Logout</button>
-            </div>
-            
+  }
+
+  return (
+    <>
+      <div className="navBarLoggedIn">
+        <div className="navTitle">
+          <h1>Blog</h1>
         </div>
-        </>
-    );
+        <div className="navLinks">
+          <Link href="/profile" className="link">
+            Profile
+          </Link>
+          <Link href="/create" className="link">
+            Create Post
+          </Link>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      </div>
+    </>
+  );
 }
