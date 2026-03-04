@@ -25,7 +25,7 @@ export default function Loggedin() {
           <Link href="/profile" className="link">
             Profile
           </Link>
-          <Link href="/create" className="link">
+          <Link href="/post" className="link">
             Create Post
           </Link>
           <button onClick={handleLogout}>Logout</button>

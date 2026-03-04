@@ -125,6 +125,29 @@
   color: white;
 }
 
+.createPostContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.createPostForm{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 5px;
+  gap: 20px;
+  padding: 10px;
+}
+
+.createPostFormChild{
+  display:flex;
+  flex-direction: column;
+  color: black;
+}
+
 
 
 
