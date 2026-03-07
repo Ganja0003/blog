@@ -1,0 +1,59 @@
+'use client'
+import Loggedin from "../components/navbar/loggedIn";
+import { useState } from "react";
+
+export default function PostClient({token}){
+const [post,setPost] = useState({
+    user_id:1,
+    title:'',
+    content:''
+});
+
+
+function handleChange(e){
+ setPost({...post, 
+  [e.target.name]: e.target.value
+ });
+}
+
+console.log(post);
+
+async function handleSubmit(e){
+    e.preventDefault()
+    const res = await fetch('http://127.0.0.1:3001/createPost',{
+        method:'POST',
+        headers: {
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify(post),
+    })
+    const data = await res.json();
+    console.log(data)
+}
+
+if(!token){
+    return <h1>please login</h1>
+}
+
+
+    return(
+    <>
+    <Loggedin/>
+    <div className="createPostContainer">
+        <h1>Create Post</h1>
+        <form className="createPostForm" onSubmit={handleSubmit}>
+            <div className="createPostFormChild">
+                <label htmlFor="title">Title</label>
+                <input type="text" id='title' name='title' value={post.title} onChange={handleChange}/>
+            </div>
+            <div className="createPostFormChild">
+                <label htmlFor="content">Content</label>
+                <textarea id='content' rows="8" cols='33' name='content' value={post.content} onChange={handleChange}/>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    </>
+);
+}
