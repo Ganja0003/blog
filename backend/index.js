@@ -23,6 +23,19 @@ app.get('/profile', auth, (req,res) => {
  res.json(req.user)
 })
 
+app.post('/createPost', async(req,res) => {
+    try {
+        const post = await db('posts').insert(req.body);
+        res.status(201).json({
+            postID: post[0],
+            message:'post created successfully'
+        })
+    } catch (error) {
+        
+    }
+    
+})
+
 app.listen(3001, () => {
     console.log('Server is running on port 3001');
 });
