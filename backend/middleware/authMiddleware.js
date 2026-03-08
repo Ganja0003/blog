@@ -2,7 +2,11 @@ import jwt from 'jsonwebtoken'
 
 
 function validateToken(req,res,next){
- const token = req.cookies['token'];
+ const authHeader = req.headers['authorization'];
+ 
+ if (!authHeader) return res.status(401).json('User not authenticated');
+
+ const token = authHeader.split(' ')[1]
 
  if(!token){
     res.status(400).json('user not authenticated')

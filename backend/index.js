@@ -3,7 +3,7 @@ import db from './database.js'
 import authRoute from './auth/route.js'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import auth from './middleware/authMiddleware.js'
+import validateToken from './middleware/authMiddleware.js'
 
 const app = express();
 app.use(express.json())
@@ -19,19 +19,22 @@ app.get('/',(req,res) => {
 });
 
 
-app.get('/profile', auth, (req,res) => {
+app.get('/profile', validateToken, (req,res) => {
  res.json(req.user)
 })
 
-app.post('/createPost', async(req,res) => {
+app.post('/createPost',validateToken, async(req,res) => {
     try {
-        const post = await db('posts').insert(req.body);
+        const {title,content} = req.body;
+        const user_id = req.user.id
+        const post = await db('posts').insert({user_id,title,content});
         res.status(201).json({
             postID: post[0],
             message:'post created successfully'
         })
     } catch (error) {
-        
+        console.error(error);
+    res.status(500).json('message: server error.');
     }
     
 })
