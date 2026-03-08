@@ -3,7 +3,8 @@ import PostClient from "./postClient";
 
 export default async function Post(){
 const cookieHolder = await cookies();
-const token = cookieHolder.get('token');
+const tokenholder = cookieHolder.get('token');
+const token = tokenholder.value
 
     return <PostClient token={token}/>;
 }

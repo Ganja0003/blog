@@ -4,7 +4,6 @@ import { useState } from "react";
 
 export default function PostClient({token}){
 const [post,setPost] = useState({
-    user_id:1,
     title:'',
     content:''
 });
@@ -24,12 +23,14 @@ async function handleSubmit(e){
         method:'POST',
         headers: {
             'Content-Type':'application/json',
+            Authorization: `Bearer ${token}`
         },
         body: JSON.stringify(post),
     })
     const data = await res.json();
     console.log(data)
 }
+
 
 if(!token){
     return <h1>please login</h1>
