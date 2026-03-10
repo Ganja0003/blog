@@ -1,28 +1,15 @@
-"use client";
-import { useState, useEffect } from "react";
+import {cookies} from 'next/headers'
+import ProfileClient from "./profileClient";
 
-export default function Profile() {
-  const [user, setUser] = useState(null);
+export default async function Profile() {
+  const cookieHolder = await cookies();
+  const tokenholder = cookieHolder.get('token');
+  const token = tokenholder.value
+  
 
-  useEffect(() => {
-    const getUser = async () => {
-      const res = await fetch('http://127.0.0.1:3001/profile',{
-        credentials:'include'
-      })
-      const data = await res.json()
-      setUser(data)
-    };
-    
+  
 
-    getUser()
-  },[]);
+  
 
-  console.log(user)
-
-  if(!user){
-    return <h1>Loading...</h1>
-  }
-
-
-  return <h1>Welcome to your profile {user.name}</h1>;
+  return <ProfileClient token={token}/>;
 }
