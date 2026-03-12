@@ -23,6 +23,11 @@ app.get('/profile', validateToken, (req,res) => {
  res.json(req.user)
 })
 
+app.get('/posts',async (req,res) => {
+    const posts = await db.select('*').from('posts');
+    res.json(posts)
+})
+
 app.post('/createPost',validateToken, async(req,res) => {
     try {
         const {title,content} = req.body;
