@@ -10,7 +10,7 @@ export default async function Home(){
         <>
         {!token && <LoggedOut/>}
         {token && <LoggedIn/>}
-        <AllPosts/>
+        {token && <AllPosts/>}
         </>
     );
 }
