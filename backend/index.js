@@ -24,8 +24,13 @@ app.get('/profile', validateToken, (req,res) => {
 })
 
 app.get('/posts',async (req,res) => {
-    const posts = await db.select('*').from('posts');
-    res.json(posts)
+    try{
+        const posts = await db.select('*').from('posts');
+        res.json(posts)
+    }catch(error){
+        res.status(500).json('server error')
+    }
+    
 })
 
 app.post('/createPost',validateToken, async(req,res) => {
