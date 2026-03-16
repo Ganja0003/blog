@@ -5,16 +5,18 @@ export default async function AllPosts(){
     console.log(posts)
  return(
     <>
+    <div className="postList">
     {posts.map(post => (
-      <div key={post.id}>
-         <h1>{post.title}</h1>
-         <p>{post.content}</p>
-         <p>{post.created_at.slice(0,10)}</p>
+      <div key={post.id} className="postCard">
+         <h1 className="postTitle">{post.title}</h1>
+         <p className="postContent">{post.content}</p>
+         <p className="postCreatedAt">{post.created_at.slice(0,10)}</p>
       </div>
     )
       
       
     )}
+    </div>
     </>
  );
 }
