@@ -45,11 +45,11 @@ if(!token){
         <form className="createPostForm" onSubmit={handleSubmit}>
             <div className="createPostFormChild">
                 <label htmlFor="title">Title</label>
-                <input type="text" id='title' name='title' value={post.title} onChange={handleChange}/>
+                <input type="text" id='title' name='title' value={post.title} onChange={handleChange} required/>
             </div>
             <div className="createPostFormChild">
                 <label htmlFor="content">Content</label>
-                <textarea id='content' rows="8" cols='33' name='content' value={post.content} onChange={handleChange}/>
+                <textarea id='content' rows="8" cols='33' name='content' value={post.content} onChange={handleChange} required/>
             </div>
             <button type="submit">Submit</button>
         </form>
