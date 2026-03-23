@@ -22,6 +22,9 @@ export default function Loggedin() {
           <h1>Blog</h1>
         </div>
         <div className="navLinks">
+          <Link href="/" className="link">
+            Home
+          </Link>
           <Link href="/profile" className="link">
             Profile
           </Link>
