@@ -18,10 +18,20 @@ app.get('/',(req,res) => {
     res.send('welcome to the backend');
 });
 
+app.get('/profile', validateToken, async (req, res) => {
+  const id = req.user.id;
 
-app.get('/profile', validateToken, (req,res) => {
- res.json(req.user)
-})
+  try {
+  const user = await db('users').where({ id }).select('name','id').first();
+  const posts = await db('posts').where({ user_id: id });
+
+  res.json({ user, posts });
+
+} catch (err) {
+  console.error(err);
+  res.status(500).json({ error: err.message });
+}
+});
 
 app.get('/posts',async (req,res) => {
     try{

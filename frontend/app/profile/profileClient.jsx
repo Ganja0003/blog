@@ -20,7 +20,7 @@ export default function ProfileClient({token}) {
     
 
     getUser()
-  },[]);
+  },[]); 
 
 
   if(!user){
@@ -29,6 +29,6 @@ export default function ProfileClient({token}) {
 
 
   return (<>
-  <Loggedin/> <h1>Welcome to your profile {user.name}</h1>
+  <Loggedin/> <h1>Welcome to your profile {user.user.name}</h1>
   </>);
 }
