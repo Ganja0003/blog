@@ -4,6 +4,7 @@ import Loggedin from "../components/navbar/loggedIn";
 
 export default function ProfileClient({token}) {
   const [user, setUser] = useState(null);
+  const [posts,setPosts] = useState();
 
   useEffect(() => {
     const getUser = async () => {
@@ -15,7 +16,8 @@ export default function ProfileClient({token}) {
         
       })
       const data = await res.json()
-      setUser(data)
+      setUser(data.user)
+      setPosts(data.posts)
     };
     
 
@@ -29,6 +31,17 @@ export default function ProfileClient({token}) {
 
 
   return (<>
-  <Loggedin/> <h1>Welcome to your profile {user.user.name}</h1>
+  <Loggedin/> 
+  <h1>Welcome to your profile {user.name}</h1>
+  <div className="postList">
+    {posts.map(post => (
+      <div key={post.id} className="postCard">
+         <h1 className="postTitle">{post.title}</h1>
+         <p className="postContent">{post.content}</p>
+         <p className="postCreatedAt">{post.created_at.slice(0,10)}</p>
+      </div>
+    )
+    )}
+    </div>
   </>);
 }
