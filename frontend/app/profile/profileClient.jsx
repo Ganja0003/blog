@@ -25,6 +25,21 @@ export default function ProfileClient({token}) {
   },[]); 
 
 
+   async function handleDelete(id){
+    await fetch(`http://127.0.0.1:3001/posts/${id}`,{
+      method:'DELETE',
+      headers:{
+        Authorization: `Bearer ${token}`
+      }
+    }
+      
+
+    )
+    const newPosts = posts.filter(post => post.id !== id);
+    setPosts(newPosts);
+   }
+
+
   if(!user){
     return <h1>Loading...</h1>
   }
@@ -39,6 +54,7 @@ export default function ProfileClient({token}) {
          <h1 className="postTitle">{post.title}</h1>
          <p className="postContent">{post.content}</p>
          <p className="postCreatedAt">{post.created_at.slice(0,10)}</p>
+         <button onClick={() =>handleDelete(post.id)}>Delete</button>
       </div>
     )
     )}
