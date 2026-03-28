@@ -59,6 +59,31 @@ app.post('/createPost',validateToken, async(req,res) => {
     
 })
 
+app.delete('/posts/:id',validateToken, async(req,res)=>{
+    const userId = req.user.id;
+    const postId = req.params.id
+
+    try {
+        const post = await db('posts').where({id:postId}).first
+
+        if(!post){
+            res.status(404).json('post not found')
+        }
+
+        if(post.user_id !== userId){
+            res.status(403).json('user not authorized');
+        }
+
+        await db('posts').where({id:postId}).del();
+
+        res.status(200).json('Post is deleted')
+        
+    } catch (error) {
+        console.log(error)
+        res.status(500).json('server error');
+    }
+})
+
 app.listen(3001, () => {
     console.log('Server is running on port 3001');
 });
