@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import LoggedOut from "./navbar/loggedOut";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -29,6 +30,10 @@ export default function Signup() {
     }
   }
   return (
+
+    <>
+    <LoggedOut/>
+    <div className="signupContainer">
     <form className="signUpForm" onSubmit={handleSubmit}>
       <h1>SignUp</h1>
       <div className="nameSignupContainer">
@@ -61,9 +66,11 @@ export default function Signup() {
         />
       </div>
 
-      <button type="submit">Submit</button>
+      <button type="submit" className="submit">Submit</button>
 
-      <Link href="/">Login</Link>
+      <Link href="/login" className="link">Login</Link>
     </form>
+    </div>
+    </>
   );
 }

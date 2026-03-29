@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import LoggedOut from "./navbar/loggedOut";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -46,6 +47,8 @@ export default function Login() {
 
   return (
     <>
+    <LoggedOut/>
+    <div className="loginContainer">
       <form className="loginForm" onSubmit={handleSubmit}>
         <h1>Login</h1>
         <div className="emailLoginContainer">
@@ -68,10 +71,11 @@ export default function Login() {
           />
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" className="submit">Submit</button>
 
-        <Link href="/signup">Signup</Link>
+        <Link href="/signup" className="link">Signup</Link>
       </form>
+      </div>
     </>
   );
 }

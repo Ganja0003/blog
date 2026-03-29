@@ -3,17 +3,27 @@
   margin: 0px;
 }
 
-
-.loginForm{
-  border:1px solid black;
-  background-color:rgb(0, 149, 255);
-  height: 300px;
-  width: 300px;
-  display:flex;
-  flex-direction: column;
+.loginContainer{
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  width: 100%;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.loginForm{
+  border-radius: 12px;
+  background-color: white;
+  color: black;
+  width: 350px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .emailLoginContainer, .passwordLoginContainer{
@@ -22,22 +32,45 @@
 }
 
 .emailLoginContainer > input , .passwordLoginContainer > input{
-  background-color: white;
-  border: 1px solid black
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.submit {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.signupContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #f0f2f5;
 }
 
 
-
 .signUpForm{
-  border:1px solid black;
-  background-color:rgb(0, 149, 255);
-  height: 300px;
-  width: 300px;
-  display:flex;
+  border-radius: 12px;
+  background-color: white;
+  color: black;
+  width: 350px;
+  padding: 40px 30px;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
+  align-items: stretch;
+  gap: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .nameSignupContainer, .emailSignupContainer, .passwordSignupContainer{
@@ -46,8 +79,15 @@
 }
 
 .passwordSignupContainer > input , .emailSignupContainer > input , .nameSignupContainer > input{
-  background-color: white;
-  border: 1px solid black
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.link{
+  text-decoration: none;
+  color: black;
 }
 
 
