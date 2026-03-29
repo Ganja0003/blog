@@ -125,6 +125,40 @@
   color: white;
 }
 
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navLinks {
+    display: none;           
+    flex-direction: column;
+    position: absolute;
+    top: 8vh;                
+    right: 0;
+    background-color: black;
+    width: 200px;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .navLinks.active {
+    display: flex;           
+  }
+
+  .navLinks > .link {
+    color: white;
+    font-size: 1.2rem;
+  }
+}
+
 .createPostContainer{
   display: flex;
   flex-direction: column;
