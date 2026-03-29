@@ -64,7 +64,7 @@ app.delete('/posts/:id',validateToken, async(req,res)=>{
     const postId = req.params.id
 
     try {
-        const post = await db('posts').where({id:postId}).first
+        const post = await db('posts').where({id:postId}).first()
 
         if(!post){
             res.status(404).json('post not found')

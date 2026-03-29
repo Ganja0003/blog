@@ -14,4 +14,9 @@ const db = knex({
     }
 });
 
+db.raw('SELECT 1')
+  .then(() => console.log('DB connected!'))
+  .catch((err) => console.error('DB connection error:', err));
+
+
 export default db;
