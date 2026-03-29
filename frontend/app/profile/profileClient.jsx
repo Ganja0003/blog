@@ -6,9 +6,11 @@ export default function ProfileClient({token}) {
   const [user, setUser] = useState(null);
   const [posts,setPosts] = useState();
 
+  const URL = 'https://easygoing-imagination-production-0598.up.railway.app'
+
   useEffect(() => {
     const getUser = async () => {
-      const res = await fetch('http://127.0.0.1:3001/profile',{
+      const res = await fetch(`${URL}/profile`,{
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`
@@ -26,7 +28,7 @@ export default function ProfileClient({token}) {
 
 
    async function handleDelete(id){
-    await fetch(`http://127.0.0.1:3001/posts/${id}`,{
+    await fetch(`${URL}/posts/${id}`,{
       method:'DELETE',
       headers:{
         Authorization: `Bearer ${token}`

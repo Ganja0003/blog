@@ -1,6 +1,7 @@
 
 export default async function AllPosts(){
-    const res = await fetch('http://127.0.0.1:3001/posts');
+   const URL = 'https://easygoing-imagination-production-0598.up.railway.app'
+    const res = await fetch(`${URL}/posts`);
     const posts = await res.json()
     console.log(posts)
  return(

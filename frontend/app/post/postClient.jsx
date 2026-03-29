@@ -7,6 +7,7 @@ const [post,setPost] = useState({
     title:'',
     content:''
 });
+const URL = 'https://easygoing-imagination-production-0598.up.railway.app'
 
 
 function handleChange(e){
@@ -19,7 +20,7 @@ console.log(post);
 
 async function handleSubmit(e){
     e.preventDefault()
-    const res = await fetch('http://127.0.0.1:3001/createPost',{
+    const res = await fetch(`${URL}/createPost`,{
         method:'POST',
         headers: {
             'Content-Type':'application/json',

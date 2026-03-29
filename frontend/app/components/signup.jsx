@@ -10,6 +10,8 @@ export default function Signup() {
     password: "",
   });
 
+  const URL = 'https://easygoing-imagination-production-0598.up.railway.app'
+
   function handleFormData(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
@@ -18,7 +20,7 @@ export default function Signup() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const res = await fetch("http://127.0.0.1:3001/auth/signup", {
+    const res = await fetch(`${URL}/auth/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

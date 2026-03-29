@@ -9,6 +9,7 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const URL = 'https://easygoing-imagination-production-0598.up.railway.app'
 
   const router = useRouter();
 
@@ -23,7 +24,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://127.0.0.1:3001/auth/login", {
+      const res = await fetch(`${URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
