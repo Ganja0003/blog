@@ -18,7 +18,8 @@ route.post('/signup', async (req,res) => {
         res.status(201).json({message:'User created'})
     }
     catch(err){
-        res.status(500).json({error:'server error'})
+        console.log(err)
+        res.status(500).json(err)
     }
 })
 
