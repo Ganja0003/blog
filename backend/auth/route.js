@@ -40,6 +40,9 @@ route.post('/login', async (req,res) => {
        return res.status(401).json('Unauthorized');
     }else{
         res.cookie('token',createToken(user), {
+        httpOnly: true,      
+        secure: true,        
+        sameSite: 'none',    
         maxAge: 60*60*24*30*1000 }
     )
         res.status(200).json('Logged In');
