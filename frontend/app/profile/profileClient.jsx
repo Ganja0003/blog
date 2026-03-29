@@ -47,14 +47,14 @@ export default function ProfileClient({token}) {
 
   return (<>
   <Loggedin/> 
-  <h1>Welcome to your profile {user.name}</h1>
+  <h1>Welcome to your profile: {user.name}</h1>
   <div className="postList">
     {posts.map(post => (
       <div key={post.id} className="postCard">
          <h1 className="postTitle">{post.title}</h1>
          <p className="postContent">{post.content}</p>
          <p className="postCreatedAt">{post.created_at.slice(0,10)}</p>
-         <button onClick={() =>handleDelete(post.id)}>Delete</button>
+         <button className='deleteButton' onClick={() =>handleDelete(post.id) }>Delete</button>
       </div>
     )
     )}

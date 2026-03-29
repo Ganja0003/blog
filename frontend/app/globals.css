@@ -131,7 +131,6 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border: 1px solid;
 }
 
 .createPostForm{
@@ -157,9 +156,8 @@
 }
 
 .postCard{
-  width: 100%;
-  max-width: 700px;
-  border: 1px solid black;
+  width: 98vw;
+  border: 2px solid black;
   padding: 20px;
   border-radius: 8px;
   background: white;
@@ -174,6 +172,17 @@
   margin-top: 10px;
   font-size: 12px;
   color: gray;
+}
+
+.deleteButton{
+  width: 13%;
+  height: 30px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 10px;
+
 }
 
 @media (max-width: 600px) {
