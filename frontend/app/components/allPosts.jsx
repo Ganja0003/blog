@@ -1,9 +1,22 @@
+'use client'
+import { useState, useEffect } from "react";
+export default function AllPosts(){
+   const [posts,setPosts] = useState();
+   const URL = 'https://easygoing-imagination-production-0598.up.railway.app';
 
-export default async function AllPosts(){
-   const URL = 'https://easygoing-imagination-production-0598.up.railway.app'
-    const res = await fetch(`${URL}/posts`);
-    const posts = await res.json()
-    console.log(posts)
+   useEffect(() => {
+      async function fetchPosts(){
+         const res = await fetch(`${URL}/posts`,{
+            credentials: 'include',
+         });
+         const data = await res.json()
+         console.log(data)
+         setPosts(data)
+      }
+      fetchPosts()
+   },[])
+
+    
  return(
     <>
     <div className="postList">
