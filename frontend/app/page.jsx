@@ -6,6 +6,7 @@ import AllPosts from './components/allPosts'
 export default async function Home(){
     const cookieReq = await cookies();
     const token = cookieReq.get('token')
+    console.log(token)
     return(
         <>
         {!token && <LoggedOut/>}

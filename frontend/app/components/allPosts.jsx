@@ -15,6 +15,7 @@ export default function AllPosts(){
       }
       fetchPosts()
    },[])
+   console.log('hey')
 
     
  return(
