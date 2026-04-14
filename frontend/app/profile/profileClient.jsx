@@ -4,7 +4,7 @@ import Loggedin from "../components/navbar/loggedIn";
 
 export default function ProfileClient({token}) {
   const [user, setUser] = useState(null);
-  const [posts,setPosts] = useState();
+  const [posts,setPosts] = useState([]);
 
   const URL = 'https://easygoing-imagination-production-0598.up.railway.app'
 
