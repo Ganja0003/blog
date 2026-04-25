@@ -22,9 +22,9 @@ async function handleSubmit(e){
     e.preventDefault()
     const res = await fetch(`${URL}/createPost`,{
         method:'POST',
+        credentials: 'include',
         headers: {
             'Content-Type':'application/json',
-            Authorization: `Bearer ${token}`
         },
         body: JSON.stringify(post),
     })
