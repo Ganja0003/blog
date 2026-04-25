@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from "react";
 export default function AllPosts(){
-   const [posts,setPosts] = useState();
+   const [posts,setPosts] = useState([]);
    const URL = 'https://easygoing-imagination-production-0598.up.railway.app';
 
    useEffect(() => {
