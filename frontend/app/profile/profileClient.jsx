@@ -11,9 +11,10 @@ export default function ProfileClient({token}) {
   useEffect(() => {
     const getUser = async () => {
       const res = await fetch(`${URL}/profile`,{
+        credentials: "include",
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`
+            
         }
         
       })
@@ -30,9 +31,7 @@ export default function ProfileClient({token}) {
    async function handleDelete(id){
     await fetch(`${URL}/posts/${id}`,{
       method:'DELETE',
-      headers:{
-        Authorization: `Bearer ${token}`
-      }
+      credentials: "include",
     }
       
 
