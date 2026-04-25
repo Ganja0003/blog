@@ -2,7 +2,7 @@
 import Loggedin from "../components/navbar/loggedIn";
 import { useState } from "react";
 
-export default function PostClient({token}){
+export default function PostClient(){
 const [post,setPost] = useState({
     title:'',
     content:''
@@ -32,10 +32,6 @@ async function handleSubmit(e){
     console.log(data)
 }
 
-
-if(!token){
-    return <h1>please login</h1>
-}
 
 
     return(
