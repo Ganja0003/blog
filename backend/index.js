@@ -33,7 +33,7 @@ app.get('/profile', validateToken, async (req, res) => {
 }
 });
 
-app.get('/posts',async (req,res) => {
+app.get('/posts',validateToken, async (req,res) => {
     try{
         const posts = await db.select('*').from('posts');
         res.json(posts)
