@@ -11,7 +11,7 @@ export default async function Home(){
         <>
         {!token && <LoggedOut/>}
         {token && <LoggedIn/>}
-        {token && <AllPosts/>}
+        {<AllPosts/>}
         </>
     );
 }
