@@ -37,6 +37,7 @@ export default function Login() {
       if (res.ok) {
         console.log("Logged in", data);
         router.push("/");
+        router.refresh();
       }else{
         console.log('Login failed',data);
       }
