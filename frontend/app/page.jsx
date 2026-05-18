@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export default async function Home(){
     const cookieReq = await cookies();
-    const token = cookieReq.get('token')
+    const token = cookieReq.get('token')?.value;
     console.log(token)
     console.log('testing')
     return(
