@@ -5,8 +5,8 @@ import AllPosts from './components/allPosts'
 
 export const dynamic = "force-dynamic";
 
-export default function Home(){
-    const cookieReq = cookies();
+export default async function Home(){
+    const cookieReq = await cookies();
     const token = cookieReq.get('token')
     console.log(token)
     console.log('testing')
