@@ -3,6 +3,8 @@ import LoggedOut from './components/navbar/loggedOut';
 import LoggedIn from './components/navbar/loggedIn';
 import AllPosts from './components/allPosts'
 
+export const dynamic = "force-dynamic";
+
 export default async function Home(){
     const cookieReq = await cookies();
     const token = cookieReq.get('token')
