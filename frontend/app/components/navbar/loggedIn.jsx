@@ -6,8 +6,10 @@ export default function Loggedin() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const URL = 'https://easygoing-imagination-production-0598.up.railway.app'
+
   async function handleLogout() {
-    const res = await fetch("http://127.0.0.1:3001/auth/logout", {
+    const res = await fetch(`${URL}/auth/logout`, {
       method: "POST",
       credentials: "include",
     });
