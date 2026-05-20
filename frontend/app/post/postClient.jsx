@@ -1,5 +1,5 @@
 'use client'
-import Loggedin from "../components/navbar/loggedIn";
+import Navbar from "../components/navbar/Navbar";
 import { useState } from "react";
 
 export default function PostClient(){
@@ -36,7 +36,7 @@ async function handleSubmit(e){
 
     return(
     <>
-    <Loggedin/>
+    <Navbar/>
     <div className="createPostContainer">
         <h1>Create Post</h1>
         <form className="createPostForm" onSubmit={handleSubmit}>
