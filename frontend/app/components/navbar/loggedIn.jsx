@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-export default function Loggedin() {
+export default function LoggedIn() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
 
