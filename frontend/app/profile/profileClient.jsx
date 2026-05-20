@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import Loggedin from "../components/navbar/loggedIn";
+import Navbar from "../components/navbar/Navbar";
 
 export default function ProfileClient({token}) {
   const [user, setUser] = useState(null);
@@ -47,7 +47,7 @@ export default function ProfileClient({token}) {
 
 
   return (<>
-  <Loggedin/> 
+  <Navbar/> 
   <h1>Welcome to your profile: {user.name}</h1>
   <div className="postList">
     {posts.map(post => (
