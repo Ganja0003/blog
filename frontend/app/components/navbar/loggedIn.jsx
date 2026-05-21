@@ -15,8 +15,7 @@ export default function LoggedIn() {
     });
 
     if (res.ok) {
-      router.push("/");
-      router.refresh()
+      window.location.href = "/";
     }
   }
 
