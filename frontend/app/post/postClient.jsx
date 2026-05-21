@@ -1,5 +1,5 @@
 'use client'
-import Navbar from "../components/navbar/Navbar";
+import Navbar from "../components/navbar/navbar";
 import { useState } from "react";
 
 export default function PostClient(){
