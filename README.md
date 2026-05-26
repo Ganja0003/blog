@@ -48,6 +48,6 @@ npm run dev
 
 ## 🛠 Built with
 
-- **Next.js** (Frontend  Backend)
+- **Next.js** (Frontend & Backend)
 - **Vercel** (Frontend deployment)
 - **Railway** (Backend & Database deployment)
