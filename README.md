@@ -20,7 +20,7 @@ It includes the following sections:
 
 ## 🚀 Live Demo
 
-Check out the live version of the Meal Sharing project  
+Check out the live version of the Blog project  
 [live demo](https://blog-rho-three-24.vercel.app/)
 
 ---
